@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cakey</title>
+		<meta charset="utf-8">
+		
+		<link rel="stylesheet" type="text/css" href="design.css">
+		
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet"> 
+	</head>
+	
+	<body>
+		<div id="container" class="card">
+		
+			<div id="input-container" class="container-half">
+				<h1>Cakey</h1>
+				<h2>A cake chart creator</h2>
+				
+				<div id="prefixSuffixContainer">
+					<input id="prefixInput" placeholder="Prefix" class="input prefixSuffixInput" type="text">
+					<input id="suffixInput" placeholder="Suffix" class="input prefixSuffixInput" type="text">
+				</div>
+				<div id="values-container"></div>
+				
+				<input id="input-add" type="button" value="Add value" class="input" onclick="addValue(false);">
+			</div>
+			
+			<div id="cake-container" class="container-half">
+				<svg id="cake" width="1000" height="1000" viewBox="0 0 1000 1000"></svg>
+			</div>
+			
+		</div>
+		
+		<div id="tooltip" class="card"></div>
+		
+		<script src="script.js"></script>
+	</body>
+</html>

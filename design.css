@@ -1,0 +1,216 @@
+:root {
+  /* Variables */
+  --color-main: #8AC926;
+  --color-main-hover: #9AD936;
+  --color-main-active: #79B513;
+  
+  --container-width: 900px;
+  --container-height: 500px;
+  
+  --cake-width: 45%;
+  --cake-margin: 50px;
+
+  --prefixSuffix-margin: 7px;
+}
+
+* {
+	font-family: 'Nunito', sans-serif;
+	font-size: 20px;
+	color: rgb(75, 75, 75);
+}
+
+body {
+	background: rgb(250, 250, 250);
+	overflow: hidden;
+}
+
+.card {
+	position: absolute;
+	display: block;
+	background: white;
+	border-radius: 5px;
+	box-shadow: 0 2px 7px 0px rgba(0,0,0, 0.15);
+}
+
+#container {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: var(--container-width);
+	max-width: calc(100% - 30px);
+	height: var(--container-height);
+	max-height: calc(100% - 30px);
+	box-sizing: border-box;
+	box-shadow: 0 3px 15px 0px rgba(0,0,0, 0.2);
+	border-radius: 7px;
+}
+body.embed #container {
+	width: 100%;
+	max-width: 100%;
+	height: 100%;
+	max-height: 100%;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.container-half {
+	position: relative;
+	float: left;
+	width: 50%;
+	height: 100%;
+	overflow: none;
+	box-sizing: border-box;
+}
+
+
+#input-container {
+	width: calc(100% - var(--cake-width));
+	padding: 7px 15px;
+	overflow: auto;
+	font-size: 20px;
+	scroll-behavior: smooth;
+}
+
+h1 {
+	margin: 2px 0;
+	color: var(--color-main);
+	font-size: 34px;
+	text-shadow: 0 2px 3px rgba(0,0,0, 0.075);
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+h2 {
+	margin-top: -5px;
+	margin-left: 3px;
+	font-size: 18px;
+	font-weight: normal;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.input {
+	border: 2px solid rgb(125, 125, 125);
+	border-radius: 5px;
+	padding: 1px 5px;
+	margin: 4px 0;
+	box-shadow: 0 2px 3px 0px rgba(0,0,0, 0.1), inset 0 1px 2px 0px rgba(0,0,0, 0.05);
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.prefixSuffixInput {
+	float: left;
+	width: calc(50% - 0.5 * var(--prefixSuffix-margin));
+}
+#suffixInput {
+	margin-left: var(--prefixSuffix-margin);
+}
+
+#input-add {
+	cursor: pointer;
+	border: 2px solid transparent;
+	background: transparent;
+	text-align: center;
+	margin-bottom: 16px;
+	box-shadow: none;
+	color: rgb(175, 175, 175);
+	transition: background 0.1s ease, box-shadow 0.12s ease, color 0.1s ease;
+}
+#input-add:hover {
+	color: inherit;
+	background: rgb(243, 243, 243);
+	box-shadow: 0 2px 3px 0px rgba(0,0,0, 0.1);
+}
+#input-add:active {
+	background: rgb(230, 230, 230);
+}
+
+.valueInput {
+	transition: opacity 0.1s ease-out, transform 0.075s ease;
+}
+body.deleting .valueInput:hover {
+	cursor: pointer;
+	opacity: 0.5;
+	transform: scale(0.95);
+}
+body.deleting .valueInput[undeletable="true"]:hover {
+	cursor: not-allowed;
+	opacity: 1;
+	transform: initial;
+}
+
+
+#cake-container {
+	width: var(--cake-width);
+}
+
+
+#cake {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: calc(100% - var(--cake-margin));
+	height: calc(100% - var(--cake-margin));
+	overflow: visible;
+}
+
+.slice {
+	position: relative;
+	cursor: help;
+	transition: transform 0.075s ease-out, filter 0.075s ease-out;
+	transform-origin: center;
+}
+.slice:hover {
+	transform: scale(1.05);
+	filter: drop-shadow(0 5px 7px rgba(0,0,0, 0.2));
+	z-index: 99;
+}
+
+#tooltip {
+	position: absolute;
+	padding: 2px 8px;
+	display: none;
+	pointer-events: none;
+	border-radius: 3px;
+}
+
+#tooltip.visible {
+	display: initial;
+}
+
+#button-add {
+	margin-top: 15px;
+	margin-bottom: 20px;
+	position: relative;
+	opacity: 0;
+}
+#button-add img {
+	top: 49%;
+	left: 49%;
+	width: 70%;
+	height: 70%;
+}
+
+#input-container:hover #button-add {
+	opacity: 1;
+}
+
+
+#button-share {
+	right: 15px;
+	bottom: 15px;
+	opacity: 0;
+}
+#button-share img {
+	top: 50%;
+	left: 48%;
+	width: 50%;
+	height: 50%;
+}
+
+#cake-container:hover #button-share {
+	opacity: 1;
+}
